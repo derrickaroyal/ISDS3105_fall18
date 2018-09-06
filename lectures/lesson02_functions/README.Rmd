@@ -175,6 +175,10 @@ sum(c(1, 2, NA), na.rm = TRUE)
 Using `if(condition) { }` you can conditionally execute a snippet of code. For instance, we can test whether you installed the library `tidyverse` and install it if not:
 
 ```{r}
+
+```
+
+```{r}
 if(!require(tidyverse)) {install.packages(tidyverse)}
 ```
 
@@ -243,8 +247,24 @@ Turn the followings into functions, making sure that your function retrieves an 
 
 
 - `mean(x, na.rm = T)`
+```{r}
+mean_rmT <- function(x) {
+  if(!is.double(x)) stop('x is not numeric')
+  base::mean(x, na.rm = TRUE) 
+  }
+mean_rmT(6)
+```
 
 - `x / sum(x, na.rm = TRUE)`
+
+
+```{r}
+sum_rmT <- function(x){
+  if(!is.double(x)) stop(BRRR::skrrrahh(33))
+  x/sum(x, na.rm = TRUE)
+}
+sum_rmT(c(7,3))
+```
 
 - `sd(x, na.rm = TRUE) / mean(x, na.rm = TRUE)`
 
@@ -252,7 +272,7 @@ Turn the followings into functions, making sure that your function retrieves an 
 For the pros: Use `BRRR::skrrrahh(33)` to listen DJ Khaled yelling "They don't wanna see us win!" when `x` is not numeric. The package is available on GitHub only:
 
 ```{r}
-if(!require(devtools)) {install.packages(devtools)}
+if(!require(devtools)) {install.packages("devtools")}
 devtools::install_github("brooke-watson/BRRR")
 ```
 
